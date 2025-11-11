@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OBS Countdown Generator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: radial-gradient(circle at center, #1a1a1a, #000);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+    }
+    .glow {
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center h-screen">
+  <div class="bg-black/60 backdrop-blur-md p-8 rounded-2xl text-center shadow-2xl border border-cyan-500/30">
+    <h1 class="text-4xl font-bold mb-3 glow">🎬 OBS Countdown Generator</h1>
+    <p class="text-gray-300 mb-5">Pick the time your countdown should end:</p>
+
+    <input id="timeInput" type="time" class="p-3 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-cyan-400" />
+    <br><br>
+    <button onclick="generateLink()" class="bg-cyan-500 px-5 py-2 rounded-lg font-semibold hover:bg-cyan-600 transition-all shadow-lg">Generate Link</button>
+
+    <div id="linkContainer" class="mt-6"></div>
+  </div>
+
+  <script>
+    function generateLink() {
+      const time = document.getElementById('timeInput').value;
+      if (!time) return alert("Please choose a time!");
+
+      const url = `${window.location.origin}/timer.html?until=${encodeURIComponent(time)}`;
+      document.getElementById('linkContainer').innerHTML = `
+        <p class="mt-4 text-gray-300">Your Countdown Link:</p>
+        <a href="${url}" target="_blank" class="text-cyan-300 underline hover:text-cyan-100 transition">${url}</a>
+        <p class="text-sm text-gray-500 mt-2">Copy this link into OBS (Browser Source).</p>
+      `;
+    }
+  </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
